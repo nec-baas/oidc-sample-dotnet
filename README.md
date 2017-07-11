@@ -4,16 +4,16 @@ oidc-sample-dotnet: OpenID Connect 認証サンプル（.NET アプリケーシ�
 
 BaaS サーバ 事前準備
 ----------------------
-先に BaaS サーバ上に OpenID Connect を設定したテナントを作成しておく必要があります。
+先に BaaS サーバ上に OpenID Connect を設定したテナントを作成しておく必要があります。  
 手順は以下の通りです。
 
-1. BaaSコンソールでテナントを新規作成する。認証種別に OIDC を指定すること。
+1. BaaSコンソールでテナントを新規作成する。認証方式に 通常認証+OIDC認証 を指定すること。
 2. OpenID Connect 設定画面の"OPリスト"から使用するOP種別の設定を行う。
 
 アプリケーション 事前設定
 -----------------------
 OIDCAuthNativeAppTP/Top.xaml.cs 内の以下変数に
-BaaSのテナントID、アプリID、アプリキー、APIベースURL、OP種別などを設定してください。
+BaaSのAPIベースURL、テナントID、アプリID、アプリキー、マスターキー、OP種別を設定してください。
 
 ### 設定対象
 * EndpointUrl
@@ -21,7 +21,12 @@ BaaSのテナントID、アプリID、アプリキー、APIベースURL、OP種�
 * AppId
 * AppKey
 * MasterKey
-* OpType
+* OpType  
+  設定可能な値は以下の通りです。  
+    * google: Google
+    * other: OpenAM
+    * adfs: ADFS (Windows Server 2016)  
+"adfs"を指定する場合は、scopeについてOIDCAuthNativeAppTP/Top.xaml.csを修正することで対応可能です。
 
 利用手順
 --------
