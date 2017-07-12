@@ -13,7 +13,7 @@ BaaS サーバ 事前準備
 アプリケーション 事前設定
 -----------------------
 OIDCAuthNativeAppTP/Top.xaml.cs 内の以下変数に
-BaaSのAPIベースURL、テナントID、アプリID、アプリキー、マスターキー、OP種別を設定してください。
+BaaSのAPIベースURL、テナントID、アプリID、アプリキー、マスターキー、OP種別などを設定してください。
 
 ### 設定対象
 * EndpointUrl
@@ -26,7 +26,8 @@ BaaSのAPIベースURL、テナントID、アプリID、アプリキー、マス
     * google: Google
     * other: OpenAM
     * adfs: ADFS (Windows Server 2016)  
-"adfs"を指定する場合は、scopeについてOIDCAuthNativeAppTP/Top.xaml.csを修正することで対応可能です。
+"adfs"を指定する場合は、以下Scopeを "openid profile email" としてください。
+* Scope (オプション)
 
 利用手順
 --------
