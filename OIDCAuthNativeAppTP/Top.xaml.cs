@@ -19,6 +19,7 @@ namespace OIDCAuthNativeAppTP
         const string AppKey = "";
         const string MasterKey = "";
         const string OpType = "";
+        const string Scope = "";
         HttpListener listener;
         string onetimeToken = "";
         bool isProcessing = false;
@@ -39,6 +40,7 @@ namespace OIDCAuthNativeAppTP
 
             string redirectUri = "http://localhost:8080/receiveToken/";
             string encodeUri = System.Web.HttpUtility.UrlEncode(redirectUri);
+            string encodeScope = string.IsNullOrEmpty(Scope) ? "" : System.Web.HttpUtility.UrlEncode(Scope);
 
             // ローカルサーバ起動
             // HTTPリスナー生成
@@ -61,8 +63,9 @@ namespace OIDCAuthNativeAppTP
             isProcessing = true;
 
             // ブラウザ起動でREST API実行
-            System.Diagnostics.Process.Start(EndpointUrl + "/1/" + TenantId + "/auth/oidc/start" +
-                "?redirect=" + encodeUri + "&op=" + OpType);
+            string path = EndpointUrl + "/1/" + TenantId + "/auth/oidc/start" + "?redirect=" + encodeUri + "&op=" + OpType;
+            path = encodeScope.Length == 0 ? path : path + "&scope=" + encodeScope;
+            System.Diagnostics.Process.Start(path);
 
             // リクエスト待ち
             HttpListenerContext context = listener.GetContext();
