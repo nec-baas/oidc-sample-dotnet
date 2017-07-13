@@ -17,7 +17,6 @@ namespace OIDCAuthNativeAppTP
         const string TenantId = "";
         const string AppId = "";
         const string AppKey = "";
-        const string MasterKey = "";
         const string OpType = "";
         const string Scope = "";
         HttpListener listener;

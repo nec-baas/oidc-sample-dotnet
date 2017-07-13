@@ -13,14 +13,13 @@ BaaS サーバ 事前準備
 アプリケーション 事前設定
 -----------------------
 OIDCAuthNativeAppTP/Top.xaml.cs 内の以下変数に
-BaaSのAPIベースURL、テナントID、アプリID、アプリキー、マスターキー、OP種別などを設定してください。
+BaaSのAPIベースURL、テナントID、アプリID、アプリキー、OP種別などを設定してください。
 
 ### 設定対象
 * EndpointUrl
 * TenantId
 * AppId
 * AppKey
-* MasterKey
 * OpType  
   設定可能な値は以下の通りです。  
     * google: Google
