@@ -25,7 +25,6 @@ BaaSのAPIベースURL、テナントID、アプリID、アプリキー、OP種�
     * google: Google
     * other: OpenAM
     * adfs: ADFS (Windows Server 2016)  
-"adfs"を指定する場合は、以下Scopeを "openid profile email" としてください。
 * Scope (オプション)
 
 利用手順
