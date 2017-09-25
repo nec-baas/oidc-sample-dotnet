@@ -62,7 +62,7 @@ namespace OIDCAuthNativeAppTP
             isProcessing = true;
 
             // ブラウザ起動でREST API実行
-            string path = EndpointUrl + "/1/" + TenantId + "/auth/oidc/start" + "?redirect=" + encodeUri + "&op=" + OpType;
+            string path = EndpointUrl + "/1/" + TenantId + "/auth/oidc/start" + "?redirect=" + encodeUri + "&op=" + OpType + "&createUser=true";
             path = encodeScope.Length == 0 ? path : path + "&scope=" + encodeScope;
             System.Diagnostics.Process.Start(path);
 
